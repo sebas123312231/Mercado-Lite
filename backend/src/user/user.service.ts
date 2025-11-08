@@ -4,8 +4,9 @@ import { User } from "src/entity/user.entity";
 import { Carrito } from "src/entity/carrito.entity";
 
 
-@Injectable()
+@Injectable() 
 export class UserService {
+    
     async createUser(user: User) {
         // 1. Crear un carrito vacío para el usuario
         const carrito = await AppDataSource.manager.save(Carrito, { total: 0 });
@@ -41,6 +42,11 @@ export class UserService {
         });
         if (!user) {
             throw new Error(`User con CI ${ci} no encontrado`);
+        }
+        if (user.carritoId) {
+            await AppDataSource.manager.delete(Carrito, {
+                id: user.carritoId
+            });
         }
         return await AppDataSource.manager.delete(User, { ci: parseInt(ci) });
     }
