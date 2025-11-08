@@ -8,4 +8,4 @@ import { CarritoController } from "../carrito/carrito.controller";
     controllers: [CarritoController],
     providers: [CarritoService],
 })
-export class CarritoModule {}
+export class CarritoModule {}   

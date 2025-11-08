@@ -11,16 +11,6 @@ export class CarritoController {
     }
 
     /**
-     * GET /carrito/:id
-     * Obtener UN carrito específico por su ID
-     * Ejemplo: GET /carrito/1
-     */
-    @Get('/:id')
-    obtenerCarritoPorId(@Param('id') id: string) {
-        return this.carritoService.obtenerCarrito(id);
-    }
-
-    /**
      * GET /carrito/user/:ci
      * Obtener el carrito de un usuario por su CI
      * Ejemplo: GET /carrito/user/123456
@@ -28,6 +18,16 @@ export class CarritoController {
     @Get('/user/:ci')
     obtenerCarritoPorUserCi(@Param('ci') ci: string) {
         return this.carritoService.obtenerCarritoPorUserCi(ci);
+    }
+
+    /**
+     * GET /carrito/:id 
+     * Obtener UN carrito específico por su ID
+     * Ejemplo: GET /carrito/1
+     */
+    @Get('/:id')
+    obtenerCarritoPorId(@Param('id') id: string) {
+        return this.carritoService.obtenerCarrito(id);
     }
 
     // ==================== PUT ENDPOINTS ====================

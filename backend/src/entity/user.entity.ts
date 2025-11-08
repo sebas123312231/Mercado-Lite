@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn} from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany} from "typeorm"
 import { Carrito } from "./carrito.entity"
+import { UserHistorial } from "./userhistorial.entity"
 
 @Entity()
 export class User {
@@ -24,4 +25,8 @@ export class User {
 
   @Column({ nullable: true })
   carritoId: number  // ← Clave foránea (columna física en BD)
+
+  @OneToMany(() => UserHistorial, userHistorial => userHistorial.user)
+  userHistorials: UserHistorial[];
+  
 }
