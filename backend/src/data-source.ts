@@ -1,5 +1,4 @@
 import { DataSource } from "typeorm";
-import { User } from "./entity/user.entity";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -10,7 +9,7 @@ export const AppDataSource = new DataSource({
     database: "mercado_lite_db",
     synchronize: true,
     logging: true,
-    entities: [User],
+    entities: [],
     subscribers: [],
     migrations: [],
 })  
