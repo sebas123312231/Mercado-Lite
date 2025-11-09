@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn, OneToMany, ManyToOne, JoinColumn } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from "typeorm"
 import { Proveedor } from "./proveedor.entity" // Importación corregida
 import { Descuento } from "./descuento.entity" // Importación corregida
 import { Lote } from "./lote.entity" // Importación corregida
@@ -7,7 +7,7 @@ import { CategoriaProducto } from "./categoriaproducto.entity" // Importación c
 @Entity('Inventario')
 export class Inventario { 
   
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   idProducto: number 
 
   @Column()

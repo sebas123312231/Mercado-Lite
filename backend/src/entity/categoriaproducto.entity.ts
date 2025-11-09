@@ -16,12 +16,11 @@ export class CategoriaProducto {
   fechaAsignacion: Date
 
   // N:1 con Inventario
-  @ManyToOne(() => Inventario, inventario => inventario.categoriasProducto, { primary: true })
+  @ManyToOne(() => Inventario, inventario => inventario.categoriasProducto)
   @JoinColumn({ name: "idProducto" })
   inventario: Inventario
-
   // N:1 con Categoria
-  @ManyToOne(() => Categoria, categoria => categoria.categoriasProducto, { primary: true })
+  @ManyToOne(() => Categoria, categoria => categoria.categoriasProducto)
   @JoinColumn({ name: "idCategoria" })
   categoria: Categoria
 }

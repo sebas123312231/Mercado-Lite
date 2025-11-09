@@ -16,6 +16,6 @@ export class Categoria {
   estaActiva: boolean 
 
   // 1:N con CategoriaProducto
-  @OneToMany(() => CategoriaProducto, cp => cp.categoria)
+  @OneToMany(() => CategoriaProducto, categoriaProducto => categoriaProducto.categoria)
   categoriasProducto: CategoriaProducto[]
 }
