@@ -1,8 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from "typeorm"
-import { Proveedor } from "./proveedor.entity" // Importación corregida
-import { Descuento } from "./descuento.entity" // Importación corregida
-import { Lote } from "./lote.entity" // Importación corregida
-import { CategoriaProducto } from "./categoriaproducto.entity" // Importación corregida
+import { Proveedor } from "./proveedor.entity"
+import { Descuento } from "./descuento.entity"
+import { Lote } from "./lote.entity"
+import { CategoriaProducto } from "./categoriaproducto.entity"
+import { CarritoInventario } from "./carritoinventario.entity"
 
 @Entity('Inventario')
 export class Inventario { 
@@ -51,4 +52,7 @@ export class Inventario {
   // 1:N con CategoriaProducto
   @OneToMany(() => CategoriaProducto, cp => cp.inventario)
   categoriasProducto: CategoriaProducto[]
+
+  @OneToMany(() => CarritoInventario, carritoInventario => carritoInventario.inventario)
+  carritoInventarios: CarritoInventario[];
 }

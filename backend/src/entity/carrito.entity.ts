@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToOne , OneToMany} from "typeorm"
 import { User } from "./user.entity"
 import { Pedido } from "./pedido.entity"
+import { CarritoInventario } from "./carritoinventario.entity"
 
 @Entity()
 export class Carrito {
@@ -18,4 +19,7 @@ export class Carrito {
 
   @OneToMany(() => Pedido, pedido => pedido.carrito)
   pedidos: Pedido[];
+
+  @OneToMany(() => CarritoInventario, carritoInventario => carritoInventario.carrito)
+  carritoInventarios: CarritoInventario[];
 } 
